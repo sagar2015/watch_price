@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-image: linear-gradient(grey, skyblue);
+        }
+        
+        .watch {
+            display: flex;
+            height: 100vh;
+        }
+        
+        .watch-imgs {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .small-watch-img {
+            height: 150px;
+            width: 150px;
+            margin: 15px;
+            box-shadow: 0px 0px 15px 2px rgb(26, 138, 95);
+            border-radius: 1px;
+        }
+        
+        .small-watch-img img {
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .display-img {
+            height: 300px;
+            width: 300px;
+            border: 2px solid rgb(103, 157, 180);
+            margin-top: 11.5%;
+            margin-left: 7%;
+            border-radius: 5px;
+        }
+        
+        .display-img img {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .display-img img:hover {
+            transform: scale(1.5, 1.5);
+            transition: 1.5s ease;
+        }
+        
+        .price {
+            height: 350px;
+            width: 275px;
+            margin-left: 15%;
+            margin-top: 9.5%;
+            border: 2px solid skyblue;
+        }
+        
+        .price h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .price input {
+            width: 50%;
+            margin-top: 20px;
+        }
+        
+        .price label {
+            margin-left: 10px;
+        }
+        
+        @media screen and (max-width:575px) {
+            .watch-imgs {
+                order: 1;
+                flex-direction: row;
+                width: 100%;
+            }
+            .display-img {
+                order: 2;
+                margin-left: 0;
+            }
+            .price {
+                order: 3;
+                background-color: skyblue;
+                width: 100%;
+                margin-left: 0;
+            }
+            .watch {
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="watch">
+        <div class="watch-imgs">
+            <div class="small-watch-img">
+                <img src="images/watch1.jpg" onmouseover="watch_animation(this.src)" alt="watch1">
+            </div>
+            <div class="small-watch-img">
+                <img src="images/watch2.jpg" onmouseover="watch_animation(this.src)" alt="watch2">
+            </div>
+            <div class="small-watch-img">
+                <img src="images/watch3.jpg" onmouseover="watch_animation(this.src)" alt="watch3">
+            </div>
+        </div>
+        <div class="display-img">
+            <img src="images/watch1.jpg" alt="">
+        </div>
+
+        <div class="price">
+
+            <h3>WATCH PRICE</h3>
+            <label>PRICE : </label>
+            <input type="number" id="price" placeholder="Enter Price" onchange="calculate_price()"><br>
+
+            <label>QUANTITY : </label>
+            <input type="number" id="qty" placeholder="Enter Quantity" onchange="calculate_price()"><br><br>
+
+
+            <label>SUB-TOTAL : </label>
+            <span id="sub-total"> $ </span><br>
+
+            <label>DISCOUNT : </label>
+            <input type="number" id="dis" placeholder="Enter Discount" onchange="calculate_price()"> <span>%</span> <br><br>
+            <label>DISCOUNTED AMOUNT :  $</label>
+            <span id="discounted_amt"></span><br><br>
+
+            <label>TAX  13 % : $</label>
+            <span id="tax"></span><br><br>
+
+            <label>TOTAL : $</label>
+            <span id="total"></span>
+        </div>
+    </div>
+
+    <script src="watch.js"></script>
+</body>
+
+</html>
